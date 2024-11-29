@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Finance Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💰</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <nav class="sidebar">
+            <h2>💰 MyStudent Planner</h2>
+            <div class="nav-links">
+                <button class="nav-btn active" data-section="finance">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-text">Finance</span>
+                </button>
+                <button class="nav-btn" data-section="todo">
+                    <span class="nav-icon">✅</span>
+                    <span class="nav-text">Todo List</span>
+                </button>
+                <button class="nav-btn" data-section="goals">
+                    <span class="nav-icon">🎯</span>
+                    <span class="nav-text">Goals</span>
+                </button>
+                <button class="nav-btn" data-section="diary">
+                    <span class="nav-icon">📝</span>
+                    <span class="nav-text">Daily Diary</span>
+                </button>
+            </div>
+        </nav>
+
+        <main class="main-content">
+            <!-- Finance Section -->
+            <section id="finance" class="section active">
+                <h2>Finance Manager</h2>
+                <div class="balance-card">
+                    <h3>Current Balance</h3>
+                    <p class="balance">₹<span id="totalBalance">0</span></p>
+                </div>
+                
+                <div class="transaction-form">
+                    <h3>Add Transaction</h3>
+                    <form id="transactionForm">
+                        <div class="form-group">
+                            <input type="text" id="transDescription" placeholder="Description" required>
+                            <input type="number" id="transAmount" placeholder="Amount" required>
+                            <select id="transType">
+                                <option value="income">💰 Income</option>
+                                <option value="expense">💸 Expense</option>
+                            </select>
+                            <select id="transMode">
+                                <option value="online">🌐 Online</option>
+                                <option value="offline">💵 Offline</option>
+                            </select>
+                        </div>
+                        <button type="submit">Add Transaction</button>
+                    </form>
+                </div>
+
+                <div class="transactions-list">
+                    <h3>Recent Transactions</h3>
+                    <div id="transactionsList"></div>
+                </div>
+            </section>
+
+            <!-- Todo Section -->
+            <section id="todo" class="section">
+                <h2>Todo List</h2>
+                <div class="todo-form">
+                    <div class="todo-input-group">
+                        <input type="text" id="todoInput" placeholder="✍️ Add new task" class="todo-text-input">
+                        <select id="todoCategory" class="todo-category">
+                            <option value="general">📝 General</option>
+                            <option value="study">📚 Study</option>
+                            <option value="personal">👤 Personal</option>
+                            <option value="shopping">🛒 Shopping</option>
+                        </select>
+                        <select id="todoPriority" class="todo-priority">
+                            <option value="low">🟢 Low Priority</option>
+                            <option value="medium">🟡 Medium Priority</option>
+                            <option value="high">🔴 High Priority</option>
+                        </select>
+                        <input type="date" id="todoDueDate" class="todo-due-date">
+                    </div>
+                    <button id="addTodo" class="add-todo-btn">Add Task</button>
+                </div>
+                <div id="todoList" class="todo-list"></div>
+            </section>
+
+            <!-- Goals Section -->
+            <section id="goals" class="section">
+                <h2>Long Term Goals</h2>
+                <div class="goals-form">
+                    <input type="text" id="goalTitle" placeholder="🎯 Goal Title">
+                    <textarea id="goalDescription" placeholder="📝 Goal Description"></textarea>
+                    <input type="date" id="goalDeadline">
+                    <button id="addGoal">Add Goal</button>
+                </div>
+                <div id="goalsList" class="goals-list"></div>
+            </section>
+
+            <!-- Diary Section -->
+            <section id="diary" class="section">
+                <h2>Daily Diary</h2>
+                <div class="diary-form">
+                    <input type="date" id="diaryDate">
+                    <textarea id="diaryEntry" placeholder="✨ Write your thoughts..."></textarea>
+                    <button id="saveDiary">Save Entry</button>
+                </div>
+                <div id="diaryEntries" class="diary-entries"></div>
+            </section>
+        </main>
+    </div>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
